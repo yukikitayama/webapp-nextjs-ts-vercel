@@ -1,3 +1,4 @@
+import { createTheme } from "@mui/material/styles";
 import type { ISourceOptions } from "tsparticles-engine";
 
 // color.adobe.com, split complementary
@@ -12,6 +13,28 @@ export const darkTiffanyBlue = "#365956";
 export const lightTiffanyBlue = "#C9DfDD";
 export const darkGrayTiffanyBlue = "#505958";
 export const lightGrayTiffanyBlue = "#63A69F";
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: tiffanyBlue,
+    },
+    secondary: {
+      main: lightPink,
+    },
+  },
+});
+
+export const tabBlue = "#1f77b4";
+export const tabOrange = "#ff7f0e";
+export const tabGreen = "#2ca02c";
+export const tabRed = "#d62728";
+export const tabPurple = "#9467bd";
+export const tabBrown = "#8c564b";
+export const tabPink = "#e377c2";
+export const tabGray = "#7f7f7f";
+export const tabOlive = "#bcbd22";
+export const tabCyan = "#17becf";
 
 export const tsParticlesOptions: ISourceOptions = {
   fpsLimit: 120,

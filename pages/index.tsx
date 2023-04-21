@@ -1,17 +1,19 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import { useCallback } from "react";
-import styles from "@/styles/Home.module.css";
 import Particles from "react-particles";
 import type { Engine, Container } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { teal } from "@mui/material/colors";
 
-import Login from "../components/authentication/login";
 import { Article } from "../types/types";
 import { tsParticlesOptions } from "../utils/style";
-
-const inter = Inter({ subsets: ["latin"] });
+import Greeting from "../components/home/greeting";
+import CategoryPlot from "../components/expense/category-plot";
+import ArticleCard from "../components/article/article-card";
+import FitnessPlot from "../components/fitness/fitness-plot";
+import Architecture from "../components/home/architecture";
 
 const Home: React.FC<Article> = (props) => {
   // tsParticles
@@ -41,112 +43,79 @@ const Home: React.FC<Article> = (props) => {
         options={tsParticlesOptions}
       />
 
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
+      <Grid container spacing={5} justifyContent="center" alignItems="center">
+        <Grid item>
+          <Greeting />
+        </Grid>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
+        <Grid item xs={12} mx={{ xs: 5, lg: 20 }}>
+          <Typography variant="body1" gutterBottom>
+            Hi, I&apos;m Yuki. I&apos;m using this to manage expense, make
+            articles, and check fitness. You might find something useful in
+            articles. The example applications are the following. Find more from
+            menu.
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={4}>
+          <CategoryPlot />
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={4}>
+          <ArticleCard article={props.article} />
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={4}>
+          <FitnessPlot
+            data={{ id: "sleep", title: "Sleep", yAxisLabel: "Minutes" }}
           />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+        </Grid>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
+        <Grid item xs={12} mt={10} mx={{ xs: 5, lg: 20 }}>
+          <Typography variant="body1" gutterBottom>
+            The frontend is made by Next.js in TypeScript, and the backend is
+            AWS services with Python, running in a serverless microservices
+            manner like below.
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Architecture />
+        </Grid>
+
+        <Grid item xs={12} mx={{ xs: 5, lg: 20 }}>
+          <Typography variant="body1" gutterBottom>
+            The application code is in the following GitHub. I hope you enjoy
+            this app!
+          </Typography>
+          <Typography
+            variant="body1"
+            gutterBottom
+            sx={{ color: teal[200], textDecoration: "underline" }}
           >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
+            <a
+              href="https://github.com/yukikitayama/webapp-nextjs-ts-vercel"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://github.com/yukikitayama/webapp-nextjs-ts-vercel
+            </a>
+          </Typography>
+          <Typography
+            variant="body1"
+            gutterBottom
+            sx={{ color: teal[200], textDecoration: "underline" }}
           >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-
-        <Login />
-      </main>
+            <a
+              href="https://github.com/yukikitayama/api"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://github.com/yukikitayama/api
+            </a>
+          </Typography>
+        </Grid>
+      </Grid>
     </>
   );
 };

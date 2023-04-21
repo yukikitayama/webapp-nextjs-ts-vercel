@@ -8,5 +8,6 @@ export interface Article {
     slug: string;
     view?: number;
     like?: number;
+    excerpt?: string;
   };
 }
