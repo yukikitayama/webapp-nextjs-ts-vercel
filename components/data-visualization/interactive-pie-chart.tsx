@@ -1,13 +1,10 @@
 import Grid from "@mui/material/Grid";
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import { teal } from "@mui/material/colors";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import {
   PieChart,
@@ -108,28 +105,28 @@ const InteractivePieChart: React.FC<InteractivePieChartProps> = (props) => {
       </Grid>
 
       <Grid item xs={12}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={1}
-          >
-            <MobileDatePicker
-              label="Start"
-              value={props.start}
-              onChange={(newValue) => props.setStart(newValue)}
-            />
-            <MobileDatePicker
-              label="End"
-              value={props.end}
-              onChange={(newValue) => props.setEnd(newValue)}
-            />
-            <Button variant="outlined" size="small" onClick={props.fetchData}>
-              Update
-            </Button>
-          </Stack>
-        </LocalizationProvider>
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={1}
+        >
+          <MobileDatePicker
+            label="Start"
+            value={props.start}
+            onChange={(newValue) => props.setStart(newValue)}
+            slotProps={{ textField: { size: "small" } }}
+          />
+          <MobileDatePicker
+            label="End"
+            value={props.end}
+            onChange={(newValue) => props.setEnd(newValue)}
+            slotProps={{ textField: { size: "small" } }}
+          />
+          <Button variant="outlined" size="small" onClick={props.fetchData}>
+            Update
+          </Button>
+        </Stack>
       </Grid>
     </Grid>
   );
