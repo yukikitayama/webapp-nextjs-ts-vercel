@@ -12,7 +12,7 @@ const Architecture = () => {
       </Typography>
       <div className={classes.architecture}>
         <Image
-          src="/images/site/architecture_transparent.png"
+          src="/images/site/architecture.png"
           alt="An image of webapp architecture diagram"
           // width={3376}
           // height={2398}

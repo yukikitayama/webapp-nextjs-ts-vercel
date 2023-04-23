@@ -12,8 +12,10 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
+    "@fontsource/roboto-serif": "^4.5.12",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.12",
+    "@mui/x-data-grid": "^5.17.16",
     "@mui/x-date-pickers": "^6.2.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "18.14.6",
@@ -23,14 +25,22 @@
     "dayjs": "^1.11.7",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "gray-matter": "^4.0.3",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "react-particles": "^2.9.3",
     "react-redux": "^8.0.5",
+    "react-syntax-highlighter": "^15.5.0",
     "recharts": "^2.5.0",
+    "rehype-mathjax": "^4.0.2",
+    "remark-math": "^5.1.1",
     "tsparticles": "^2.9.3",
     "tsparticles-engine": "^2.9.3",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.6"
   }
 }

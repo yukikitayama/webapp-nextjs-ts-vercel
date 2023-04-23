@@ -1,0 +1,44 @@
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.imageCard img {
+  position: absolute;
+}
+
+.imageContent {
+  display: flex;
+  justify-content: center;
+}
+
+/* .content {
+  font-family: 'Ubuntu', sans-serif;
+} */
+
+/* .content h2 {
+  color: #80cbc4;
+} */
+
+/* .content strong {
+  color: #e6ee9c;
+} */
+
+.content a {
+  text-decoration: underline;
+}
+
+.content ul {
+  list-style: inside;
+  padding-left: 0;
+}
+
+.defaultCodeDisplay {
+  background-color: rgb(50, 50, 50);
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
