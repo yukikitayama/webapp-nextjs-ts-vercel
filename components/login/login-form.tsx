@@ -52,12 +52,16 @@ const LoginForm = () => {
 
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
-        const accessToken = result.getAccessToken().getJwtToken();
+        // This token fails to pass API gateway authorization
+        // const accessToken = result.getAccessToken().getJwtToken();
+        // This token works
+        const accessToken = result.getIdToken().getJwtToken();
 
         // Type: number, unit: second, meaning: Datetime when the ID expires
         // By default, expires in 1 hour
         // https://github.com/aws-amplify/amplify-js/blob/master/packages/amazon-cognito-identity-js/src/CognitoJwtToken.js
-        const exp = result.getAccessToken().getExpiration();
+        // const exp = result.getAccessToken().getExpiration();
+        const exp = result.getIdToken().getExpiration();
         const expirationTime = new Date(exp * 1000);
 
         // Update state
